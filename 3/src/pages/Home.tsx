@@ -1,0 +1,51 @@
+"use client"
+
+import { Link } from "react-router-dom"
+import { Button } from "@/components/ui/button"
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+  } from "@/components/ui/card"
+import React from "react"
+import { LucideInfo, LucideMonitor } from "lucide-react"
+
+
+export default function Home() {
+    return (
+        <div className="flex flex-col items-center justify-center min-h-svh select-none">
+            <h1 className="text-4xl font-bold mb-6">Day 3</h1>
+            <Card className="w-full max-w-[400px]">
+                <CardHeader>
+                    <CardTitle className="text-xl text-center">Checkpoint 1</CardTitle>
+                    <CardDescription className="text-center">Postingan</CardDescription>
+                </CardHeader>
+                <CardContent className="flex justify-center gap-2">
+                    <Link to="/about">
+                        <Button className="bg-blue-500"><LucideInfo />About</Button>
+                    </Link>
+                    <Link to="/posts">
+                        <Button className="bg-green-500">Post Detail</Button>
+                    </Link>
+                </CardContent>
+            </Card>
+
+            <Card className="w-full max-w-[400px] mt-4">
+                <CardHeader>
+                    <CardTitle className="text-xl text-center">Checkpoint 2</CardTitle>
+                    <CardDescription className="text-center">Products</CardDescription>
+                </CardHeader>
+                <CardContent className="flex justify-center gap-2">
+                    <Link to="/products">
+                        <Button className="bg-blue-500"><LucideMonitor/>Products</Button>
+                    </Link>
+                    <Link to="/cart">
+                        <Button className="bg-green-500">Cart Detail</Button>
+                    </Link>
+                </CardContent>
+            </Card>
+        </div>
+    )
+}

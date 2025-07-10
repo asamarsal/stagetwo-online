@@ -7,7 +7,7 @@ import {
   CardTitle,
   CardDescription
 } from "@/components/ui/card"
-import { Loader2Icon } from "lucide-react"
+import { Loader2Icon, Terminal } from "lucide-react"
 
 import {
   AlertDialog,
@@ -16,6 +16,7 @@ import {
   AlertDialogCancel,
   AlertDialogAction
 } from "@/components/ui/alert-dialog"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 const posts = [
   { id: 1, title: "Nasi Goreng", isipost: "Nasi Goreng adalah makanan khas indonesia yang terbuat dari nasi yang digoreng.", image: "/3.png"  },
@@ -56,7 +57,7 @@ export default function Products() {
                         <CardContent className="flex justify-end gap-2">
 
                         <Link to={`/products/${post.id}`}>
-                            <Button>Detail</Button>
+                            <Button className="bg-green-500">Detail</Button>
                         </Link>
 
                         <AlertDialogCancel asChild>
@@ -66,9 +67,10 @@ export default function Products() {
                     </Card>
                     </AlertDialogContent>
                 </AlertDialog>
+
                 <AlertDialog>
                     <AlertDialogTrigger asChild>
-                    <Button variant="destructive" className="mt-2">Add Products</Button>
+                    <Button className="mt-2 bg-green-500">Add Products</Button>
                     </AlertDialogTrigger>
                     <AlertDialogContent className="bg-transparent shadow-none border-none p-0">
                     <Card className="rounded-xl">
@@ -81,7 +83,7 @@ export default function Products() {
                             <Button variant="outline">Batal</Button>
                         </AlertDialogCancel>
                         <AlertDialogAction asChild>
-                            <Button variant="destructive" onClick={() => {
+                            <Button className="bg-green-500" onClick={() => {
                                 
                                 const cart = JSON.parse(localStorage.getItem("cart") || "[]");
                                 
@@ -89,7 +91,9 @@ export default function Products() {
                                     cart.push(post);
                                     localStorage.setItem("cart", JSON.stringify(cart));
                                 }
-                                }}>Tambah</Button>
+                                }}>Tambah
+                            </Button>
+                        
 
                         </AlertDialogAction>
                         </CardContent>

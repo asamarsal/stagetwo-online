@@ -13,6 +13,7 @@ import {
 import { Loader2Icon, LucideHome, LucideTrash } from "lucide-react"
 
 import React, { useEffect, useState } from "react"
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 
 export default function Cart() {
 
@@ -48,15 +49,35 @@ export default function Cart() {
                   <Button className="bg-blue-500">
                     <LucideHome/>Home</Button>
               </Link>
-              <Button className="bg-yellow-500" 
-              onClick={() => {
-                localStorage.removeItem("cart");
-                setCart([]);
-                }}>
-                  <LucideTrash />Hapus
-              </Button>
+              
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                    <Button className="bg-yellow-500"><LucideTrash />Hapus</Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent className="bg-transparent shadow-none border-none p-0">
+                    <Card className="rounded-xl">
+                        <CardHeader>
+                          <CardTitle>Hapus semua yang ada di cart?</CardTitle>
+                          <CardDescription>Tindakan ini tidak dapat dibatalkan.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex justify-end space-x-2">
+                          <AlertDialogCancel asChild>
+                            <Button variant="outline">Batal</Button>
+                          </AlertDialogCancel>
+                          <AlertDialogAction asChild>
+                              <Button className="bg-green-500"  onClick={() => {
+                                localStorage.removeItem("cart");setCart([]);}
+                                }>
+                                  Hapus
+                              </Button>
+                          </AlertDialogAction>
+                        </CardContent>
+                    </Card>
+                </AlertDialogContent>
+              </AlertDialog>
+
               <Link to="/products">
-                  <Button className="bg-red-500">
+                  <Button variant="destructive">
                     <Loader2Icon className="animate-bounce" />Products
                   </Button>
               </Link>

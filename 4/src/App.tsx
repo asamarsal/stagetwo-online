@@ -3,11 +3,14 @@ import { useAuth } from "./hooks/useAuth";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
+import Movies from "./pages/Movies";
 import Login from "./pages/Login";
 import { Button } from "./components/ui/button";
 import { AuthProvider } from "./context/AuthProvider";
 import PrivateRoute from "./lib/PrivateRoute";
 import ThemeToggle from "./lib/ThemeToggle";
+import Cart from "./pages/Cart";
+import { LucideBookmark, LucideShoppingCart } from "lucide-react";
 
 
 function Header() {
@@ -15,11 +18,17 @@ function Header() {
 
   return (
     <div className="w-full flex items-center justify-between p-2 border-b mb-2 bg-white dark:bg-purple-900">
-      <div className="flex gap-4">
+      <div className="flex gap-2">
 
         <Button asChild variant="outline">
           <Link to="/">Home</Link>
         </Button>
+
+        {token && (
+          <Button asChild variant="outline">
+            <Link to="/movies">Movies</Link>
+          </Button>
+        )}
 
         <Button asChild variant="outline">
           <Link to="/about">About</Link>
@@ -34,6 +43,19 @@ function Header() {
       </div>
 
       <div className="flex items-center gap-2">
+        {token && (
+          <Button asChild variant="outline">
+            <Link to="/bookmarks">
+            <LucideBookmark />Bookmarks</Link>
+          </Button>
+        )}
+
+        {token && (
+          <Button asChild variant="outline">
+            <Link to="/cart">
+            <LucideShoppingCart />Cart</Link>
+          </Button>
+        )}
         <ThemeToggle />
         {token ? (
           <Button onClick={logout} className="bg-red-500 text-white hover:bg-red-600">
@@ -64,6 +86,21 @@ function App() {
               <Products />
             </PrivateRoute>}>
           </Route>
+
+          <Route path="/cart" element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>}>
+          </Route>
+
+          <Route
+            path="/movies"
+            element={
+              <PrivateRoute>
+                <Movies />
+              </PrivateRoute>
+            }
+          />
 
         </Routes>
       </BrowserRouter>

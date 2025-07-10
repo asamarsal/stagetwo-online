@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
@@ -18,7 +19,7 @@ export default function Login() {
 
     if (username === "user" && password === "user") {
       login("simulated_token_abc");
-      navigate("/post");} 
+      navigate("/");} 
     else {
       setErrorMsg("Username atau password salah");
     }

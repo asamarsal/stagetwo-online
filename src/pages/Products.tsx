@@ -5,6 +5,9 @@ import Lottie from "lottie-react";
 
 import loadingworld from "../assets/animations/loadingworld.json";
 
+"use client"
+import { toast } from "sonner"
+
 import {
   Dialog,
   DialogContent,
@@ -74,11 +77,10 @@ export default function Products() {
               <DialogTrigger asChild>
                 <Card
                   onClick={() => setSelectedProduct(product)}
-                  className="cursor-pointer hover:shadow-emerald-500">
-                  <CardHeader className="flex flex-col">
+                  className="cursor-pointer hover:shadow-emerald-500 h-full flex flex-col">
+                  <CardHeader className="flex flex-col flex-1 h-full">
                     <img
                       src={product.image}
-                      alt={product.title}
                       className="w-full h-32 object-contain mb-2 rounded"/>
                     
                     <CardTitle>{product.title}</CardTitle>
@@ -87,7 +89,7 @@ export default function Products() {
                       ${product.price}
                     </CardDescription>
 
-                    <Button className="mt-2 auto w-full">Detail</Button>
+                    <Button className="mt-auto w-full">Detail</Button>
 
                   </CardHeader>
                 </Card>
@@ -95,19 +97,33 @@ export default function Products() {
 
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>{selectedProduct?.title}</DialogTitle>
+                  <DialogTitle className="text-center text-2xl mb-2">{selectedProduct?.title}</DialogTitle>
                   <img
                       src={product.image}
-                      alt={product.title}
                       className="w-full h-32 object-contain mb-2 rounded"/>
+
+                  <CardDescription className="truncate text-green-500">
+                      ${product.price}
+                  </CardDescription>  
 
                   <DialogDescription>{selectedProduct?.description}</DialogDescription>
                   
                   <Button
                     className="mt-2 w-full bg-green-400"
-                    onClick={() => savetoCart(product)}>
-                    Buy
+                    onClick={() => {
+                          savetoCart(product);
+                          toast("Product added to cart", {
+                            description: selectedProduct?.title,
+                            action: {
+                              label: "Undo",
+                              onClick: () => console.log("Undo"),
+                            },
+                          });
+                        }}
+                    >Buy
                   </Button>
+
+                  
 
                 </DialogHeader>
               </DialogContent>

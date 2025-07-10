@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { CloudMoon, CloudSun} from "lucide-react";
+import { CloudMoon, CloudSun } from "lucide-react";
 
 export default function ThemeToggle() {
   const [darkMode, setDarkMode] = useState(() =>

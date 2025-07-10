@@ -64,9 +64,9 @@ export default function Movies() {
               <DialogTrigger asChild>
                 <Card
                   onClick={() => setSelectedMovie(movie)}
-                  className="cursor-pointer hover:shadow-emerald-500">
+                  className="cursor-pointer hover:shadow-emerald-500 h-full flex flex-col">
                   
-                  <CardHeader>
+                  <CardHeader className="flex flex-col flex-1 h-full">
                     <img
                       src={movie.Poster !== "N/A" ? movie.Poster : "assets/react.svg"}
                       alt={movie.Title}
@@ -77,7 +77,7 @@ export default function Movies() {
                     <CardDescription className="truncate">
                       {movie.Year} &middot; {movie.Type}
                     </CardDescription>
-                    <Button className="mt-2 w-full">Detail</Button>
+                    <Button className="mt-auto w-full">Detail</Button>
                   </CardHeader>
 
                 </Card>

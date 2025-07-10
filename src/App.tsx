@@ -13,7 +13,7 @@ import ThemeToggle from "./lib/ThemeToggle";
 import Cart from "./pages/Cart";
 import { LucideBookmark, LucideShoppingCart } from "lucide-react";
 import { Toaster } from "sonner";
-import Taskone from "./pages/Taskone";
+import Tasktwo from "./pages/Tasktwo";
 
 
 function Header() {
@@ -45,7 +45,7 @@ function Header() {
         )}
 
         <Button asChild variant="outline">
-          <Link to="/taskone">2</Link>
+          <Link to="/tasktwo">2</Link>
         </Button>
 
       </div>
@@ -89,7 +89,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
 
-          <Route path="/taskone" element={<Taskone />} />
+          <Route path="/tasktwo" element={<Tasktwo />} />
 
           <Route path="/products" element={
             <PrivateRoute>

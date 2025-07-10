@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button"
 
 import type { PokemonType } from "../types/PokemonType";
 
-export default function Taskone() {
+export default function Tasktwo() {
   const [query, setQuery] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -101,7 +101,7 @@ export default function Taskone() {
 
   return (
         <div className="flex flex-col items-center min-h-svh p-4">
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md border-green-400">
             <CardHeader>
             <CardTitle className="text-2xl">Cari Pokemon</CardTitle>
             </CardHeader>
@@ -118,11 +118,11 @@ export default function Taskone() {
                 />
                 
                 {suggestions.length > 0 && (
-                <ul className="border rounded bg-white shadow max-h-40 overflow-y-auto">
+                <ul className="border rounded bg-white dark:bg-zinc-900 shadow max-h-40 overflow-y-auto">
                     {suggestions.map((name) => (
                     <li
                         key={name}
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer capitalize"
+                        className="px-4 py-2 hover:bg-gray-100 hover:dark:bg-zinc-900 cursor-pointer capitalize"
                         onClick={() => handleSuggestionClick(name)}>
                         {name}
                     </li>

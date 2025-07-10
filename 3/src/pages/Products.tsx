@@ -7,7 +7,7 @@ import {
   CardTitle,
   CardDescription
 } from "@/components/ui/card"
-import { Loader2Icon, Terminal } from "lucide-react"
+import { Loader2Icon, LucideInfo, Terminal } from "lucide-react"
 
 import {
   AlertDialog,
@@ -43,7 +43,7 @@ export default function Products() {
                 <p className="text-sm text-center">{post.isipost}</p>
                 <AlertDialog>
                     <AlertDialogTrigger asChild>
-                    <Button className="mt-2 bg-blue-500 text-white">Detail</Button>
+                    <Button className="mt-2 bg-blue-500 text-white"><LucideInfo />Detail</Button>
                     </AlertDialogTrigger>
                     <AlertDialogContent className="bg-transparent shadow-none border-none p-0">
                     <Card className="rounded-xl">
@@ -57,7 +57,7 @@ export default function Products() {
                         <CardContent className="flex justify-end gap-2">
 
                         <Link to={`/products/${post.id}`}>
-                            <Button className="bg-green-500">Detail</Button>
+                            <Button className="bg-green-500">More Detail</Button>
                         </Link>
 
                         <AlertDialogCancel asChild>

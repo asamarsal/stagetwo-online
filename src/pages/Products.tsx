@@ -23,7 +23,6 @@ import { Button } from "@/components/ui/button";
 import type { ProductType } from "../types/ProductType";
 
 export default function Products() {
-  const navigate = useNavigate(); 
 
   function savetoCart(product: ProductType) {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");

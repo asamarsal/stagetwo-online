@@ -2,17 +2,15 @@ import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import {
     Card,
-    CardAction,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
 
 import { Loader2Icon, LucideHome, LucideTrash } from "lucide-react"
 
-import React, { useEffect, useState } from "react"
+import{ useEffect, useState } from "react"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 
 export default function Cart() {

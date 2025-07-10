@@ -13,30 +13,30 @@ import { Loader2Icon, LucideHome, LucideTrash } from "lucide-react"
 import{ useEffect, useState } from "react"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 
-export default function Cart() {
+export default function Bookmarks() {
 
-  const [cart, setCart] = useState<any[]>([]);
+  const [bookmarks, setBookmarks] = useState<any[]>([]);
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    setCart(storedCart);
+    const storedBookmarks = JSON.parse(localStorage.getItem("bookmark") || "[]");
+    setBookmarks(storedBookmarks);
   }, []);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-svh select-none">
         <Card className="w-full max-w-[400px]">
           <CardHeader>
-            <CardTitle className="text-xl text-center">Cart</CardTitle>
+            <CardTitle className="text-xl text-center">Bookmarks</CardTitle>
           </CardHeader>
           <CardContent className="flex justify-center gap-2">
             <ul className="px-6 pb-2">
-              {cart.length === 0 ? (
-                <li>Cart kosong</li>
+              {bookmarks.length === 0 ? (
+                <li>Bookmark kosong</li>
               ) : (
-                cart.map((item) => (
-                  <li key={item.id} className="mb-2 flex items-center">
-                    <img src={item.image} alt={item.title} className="w-30 h-30 m-2" />
-                    {item.title}
+                bookmarks.map((item) => (
+                  <li key={item.imdbID} className="mb-2 flex items-center">
+                    <img src={item.Poster} alt={item.Title} className="w-30 h-30 m-2" />
+                    {item.Title}
                   </li>
                 ))
               )}
@@ -55,7 +55,7 @@ export default function Cart() {
                 <AlertDialogContent className="bg-transparent shadow-none border-none p-0">
                     <Card className="rounded-xl">
                         <CardHeader>
-                          <CardTitle>Hapus semua yang ada di cart?</CardTitle>
+                          <CardTitle>Hapus semua yang ada di bookmark?</CardTitle>
                           <CardDescription>Tindakan ini tidak dapat dibatalkan</CardDescription>
                         </CardHeader>
                         <CardContent className="flex justify-end space-x-2">
@@ -64,8 +64,8 @@ export default function Cart() {
                           </AlertDialogCancel>
                           <AlertDialogAction asChild>
                               <Button className="bg-green-500"  onClick={() => {
-                                localStorage.removeItem("cart");
-                                setCart([]);}
+                                localStorage.removeItem("bookmark");
+                                setBookmarks([]);}
                                 }>
                                   Hapus
                               </Button>

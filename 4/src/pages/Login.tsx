@@ -26,7 +26,11 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+
+      <h1 className="text-2xl font-bold mb-4 text-center">Username & Password</h1>
+      <h1 className="text-2xl font-light mb-4 text-center underline">user</h1>
+
       <form
         onSubmit={handleLogin}
         className="w-full max-w-sm bg-white dark:bg-zinc-900 p-4 border border-green-400 rounded-2xl shadow space-y-4"

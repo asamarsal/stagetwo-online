@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
 import { api } from "../service/api";
+
+import Lottie from "lottie-react";
+
+import loadingworld from "../assets/animations/loadingworld.json";
 
 import {
   Dialog,
@@ -17,13 +20,11 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Loader } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import type { ProductType } from "../types/ProductType";
 
 export default function Products() {
-  const navigate = useNavigate(); 
 
   function savetoCart(product: ProductType) {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -62,7 +63,7 @@ export default function Products() {
 
       {loading ? (
         <div className="flex justify-center items-center py-12">
-          <Loader className="w-8 h-8 animate-spin text-primary" />
+          <Lottie animationData={loadingworld} loop={true} style={{ width: 300, height: 300 }} />
         </div>
 
       ) : (
@@ -74,22 +75,19 @@ export default function Products() {
                 <Card
                   onClick={() => setSelectedProduct(product)}
                   className="cursor-pointer hover:shadow-emerald-500">
-                  <CardHeader>
+                  <CardHeader className="flex flex-col">
                     <img
                       src={product.image}
                       alt={product.title}
                       className="w-full h-32 object-contain mb-2 rounded"/>
+                    
                     <CardTitle>{product.title}</CardTitle>
-
-                    <CardDescription className="truncate">
-                      {product.description}
-                    </CardDescription>
 
                     <CardDescription className="truncate">
                       ${product.price}
                     </CardDescription>
 
-                    <Button className="mt-2 w-full">Detail</Button>
+                    <Button className="mt-2 auto w-full">Detail</Button>
 
                   </CardHeader>
                 </Card>

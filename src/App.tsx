@@ -5,12 +5,14 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 import Movies from "./pages/Movies";
 import Login from "./pages/Login";
+import Bookmarks from "./pages/Bookmarks";
 import { Button } from "./components/ui/button";
 import { AuthProvider } from "./context/AuthProvider";
 import PrivateRoute from "./lib/PrivateRoute";
 import ThemeToggle from "./lib/ThemeToggle";
 import Cart from "./pages/Cart";
 import { LucideBookmark, LucideShoppingCart } from "lucide-react";
+import { Toaster } from "sonner";
 
 
 function Header() {
@@ -19,6 +21,7 @@ function Header() {
   return (
     <div className="w-full flex items-center justify-between p-2 border-b mb-2 bg-white dark:bg-purple-900">
       <div className="flex gap-2">
+        <Toaster position="top-left"/>
 
         <Button asChild variant="outline">
           <Link to="/">Home</Link>
@@ -101,6 +104,12 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          <Route path="/bookmarks" element={
+            <PrivateRoute>
+              <Bookmarks />
+            </PrivateRoute>
+          } />
 
         </Routes>
       </BrowserRouter>

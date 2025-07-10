@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import { apiFilm } from "../service/apifilm";
-import { Loader } from "lucide-react";
+
+import Lottie from "lottie-react";
+
+import loadingworld from "../assets/animations/loadingworld.json";
+
+"use client"
+import { toast } from "sonner"
 
 import {
   Dialog,
@@ -26,6 +32,15 @@ export default function Movies() {
   const [loading, setLoading] = useState(true);
   const [selectedMovie, setSelectedMovie] = useState<MovieType | null>(null);
 
+  function savetoBookmark(product: MovieType) {
+      const bookmark = JSON.parse(localStorage.getItem("bookmark") || "[]");
+      const exists = bookmark.some((item: MovieType) => item.imdbID === product.imdbID);
+      if (!exists) {
+        bookmark.push(product);
+        localStorage.setItem("bookmark", JSON.stringify(bookmark));
+      }
+    }
+
   useEffect(() => {
     apiFilm
       .get("")
@@ -40,7 +55,7 @@ export default function Movies() {
       <h1 className="text-2xl font-bold mb-4 text-center">Movies</h1>
       {loading ? (
         <div className="flex justify-center items-center py-12">
-          <Loader className="w-8 h-8 animate-spin text-primary" />
+          <Lottie animationData={loadingworld} loop={true} style={{ width: 300, height: 300 }} />
         </div>
       ) : (
         <ul className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4">
@@ -82,7 +97,19 @@ export default function Movies() {
                       <div><b>Type:</b> {selectedMovie?.Type}</div>
                       <div><b>imdbID:</b> {selectedMovie?.imdbID}</div>
 
-                      <Button className="mt-2 w-full bg-green-400">Add to Bookmarks</Button>
+                      <Button
+                        className="mt-2 w-full bg-green-400"
+                        onClick={() => {
+                          savetoBookmark(movie);
+                          toast("Film added to bookmarks", {
+                            description: selectedMovie?.Title,
+                            action: {
+                              label: "Undo",
+                              onClick: () => console.log("Undo"),
+                            },
+                          });
+                        }}
+                      >Add to Bookmarks</Button>
                     </div>
                   </DialogDescription>
                 </DialogHeader>

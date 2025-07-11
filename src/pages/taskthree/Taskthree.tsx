@@ -16,7 +16,7 @@ export default function Taskthree() {
     return (
         <div className="flex flex-col items-center min-h-svh p-4">
             <h1 className="text-3xl font-bold mb-6">Day 3</h1>
-            <Card className="w-full max-w-[400px]">
+            <Card className="w-full max-w-[400px] border-green-400">
                 <CardHeader>
                     <CardTitle className="text-xl text-center">Checkpoint 1</CardTitle>
                     <CardDescription className="text-center">Postingan</CardDescription>
@@ -31,7 +31,7 @@ export default function Taskthree() {
                 </CardContent>
             </Card>
 
-            <Card className="w-full max-w-[400px] mt-4">
+            <Card className="w-full max-w-[400px] mt-4 border-green-400">
                 <CardHeader>
                     <CardTitle className="text-xl text-center">Checkpoint 2</CardTitle>
                     <CardDescription className="text-center">Products</CardDescription>

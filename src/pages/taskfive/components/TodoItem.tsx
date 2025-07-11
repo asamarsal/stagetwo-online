@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Todo } from '../types/todo';
+import type { Todo } from '../types/todo';
 import { useTodo } from '../hooks/useTodo';
 import { LucideEdit, LucideSave, LucideTrash } from "lucide-react";
 

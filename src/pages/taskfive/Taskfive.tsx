@@ -5,8 +5,8 @@ import { CartProvider } from './context/CartProvider';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 
-const App = () => {
-  return (
+export default function Taskfive() {
+    return (
     <div className="flex flex-col items-center justify-start pt-2">
       <h1 className='mt- text-3xl font-bold text-blue-600'>Day 5</h1>
 
@@ -31,6 +31,5 @@ const App = () => {
       </div>
 
     </div>
-  );
-};
-export default App;
+  )
+}

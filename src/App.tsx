@@ -16,6 +16,7 @@ import { Toaster } from "sonner";
 
 import Tasktwo from "./pages/tasktwo/Tasktwo";
 import Taskthree from "./pages/taskthree/Taskthree";
+import Taskfive from "./pages/taskfive/Taskfive";
 
 
 function Header() {
@@ -53,6 +54,11 @@ function Header() {
         <Button asChild variant="outline">
           <Link to="/taskthree">3</Link>
         </Button>
+
+        <Button asChild variant="outline">
+          <Link to="/taskfive">5</Link>
+        </Button>
+
 
       </div>
 
@@ -97,6 +103,7 @@ function App() {
 
           <Route path="/tasktwo" element={<Tasktwo />} />
           <Route path="/taskthree" element={<Taskthree />} />
+          <Route path="/taskfive" element={<Taskfive />} />
 
           <Route path="/products" element={
             <PrivateRoute>

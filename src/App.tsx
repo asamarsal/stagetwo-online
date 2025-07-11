@@ -74,7 +74,7 @@ function Header() {
         {token ? (
           <Button onClick={logout} className="bg-red-500 text-white hover:bg-red-600">
             Logout
-          </Button>) : (<Button asChild variant="outline">
+          </Button>) : (<Button asChild className="bg-green-500 text-white hover:bg-green-600">
             <Link to="/login">Login</Link>
           </Button>
         )}

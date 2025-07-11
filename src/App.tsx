@@ -13,7 +13,9 @@ import ThemeToggle from "./lib/ThemeToggle";
 import Cart from "./pages/Cart";
 import { LucideBookmark, LucideShoppingCart } from "lucide-react";
 import { Toaster } from "sonner";
-import Tasktwo from "./pages/Tasktwo";
+
+import Tasktwo from "./pages/tasktwo/Tasktwo";
+import Taskthree from "./pages/taskthree/Taskthree";
 
 
 function Header() {
@@ -46,6 +48,10 @@ function Header() {
 
         <Button asChild variant="outline">
           <Link to="/tasktwo">2</Link>
+        </Button>
+
+        <Button asChild variant="outline">
+          <Link to="/taskthree">3</Link>
         </Button>
 
       </div>
@@ -90,6 +96,7 @@ function App() {
           <Route path="/about" element={<About />} />
 
           <Route path="/tasktwo" element={<Tasktwo />} />
+          <Route path="/taskthree" element={<Taskthree />} />
 
           <Route path="/products" element={
             <PrivateRoute>

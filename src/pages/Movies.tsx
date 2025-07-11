@@ -84,13 +84,12 @@ export default function Movies() {
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>{selectedMovie?.Title}</DialogTitle>
+                  <DialogTitle className="text-center text-2xl mb-2">{selectedMovie?.Title}</DialogTitle>
                   
                   <DialogDescription>
-                    <div className="flex flex-col items-center gap-2">
+                    <div className="flex flex-col items-center gap-2 ">
                       <img
                         src={selectedMovie?.Poster !== "N/A" ? selectedMovie?.Poster : "assets/react.svg"}
-                        alt={selectedMovie?.Title}
                         className="w-40 h-60 object-contain rounded mb-2"
                       />
                       <div><b>Year:</b> {selectedMovie?.Year}</div>

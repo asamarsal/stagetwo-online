@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Products from "./pages/Products";
 import Movies from "./pages/Movies";
 import Login from "./pages/Login";
@@ -36,10 +35,6 @@ function Header() {
             <Link to="/movies">Movies</Link>
           </Button>
         )}
-
-        <Button asChild variant="outline">
-          <Link to="/about">About</Link>
-        </Button>
 
         {token && (
           <Button asChild variant="outline">
@@ -99,7 +94,6 @@ function App() {
           <Route path="/" element={<Home />} />
       
           <Route path="/login" element={<Login />} />
-          <Route path="/about" element={<About />} />
 
           <Route path="/tasktwo" element={<Tasktwo />} />
           <Route path="/taskthree" element={<Taskthree />} />

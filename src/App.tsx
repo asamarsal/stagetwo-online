@@ -22,7 +22,7 @@ function Header() {
   const { token, logout } = useAuth();
 
   return (
-    <div className="w-full flex items-center justify-between p-2 border-b mb-2 bg-white dark:bg-purple-900">
+    <div className="w-full flex flex-col sm:flex-row items-center justify-between p-2 sm:p-4 border-b mb-2 bg-white dark:bg-purple-900 gap-2 sm:gap-0">
       <div className="flex gap-2">
         <Toaster position="top-left"/>
 

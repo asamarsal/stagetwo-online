@@ -26,7 +26,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+    <div className="flex flex-col items-center min-h-svh p-4">
 
       <h1 className="text-2xl font-bold mb-4 text-center">Username & Password</h1>
       <h1 className="text-2xl font-light mb-4 text-center underline">user</h1>

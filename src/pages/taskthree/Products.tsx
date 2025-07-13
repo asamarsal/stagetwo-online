@@ -7,7 +7,7 @@ import {
   CardTitle,
   CardDescription
 } from "@/components/ui/card"
-import { Loader2Icon, LucideInfo, Terminal } from "lucide-react"
+import { Loader2Icon, LucideInfo } from "lucide-react"
 
 import {
   AlertDialog,
@@ -32,6 +32,7 @@ export default function Products() {
         </CardHeader>
 
         <CardContent className="flex justify-center gap-4 flex-wrap">
+          <h1 className="text-3xl font-bold mb-4 text-black">Fix error</h1>
           {posts.map((post) => (
             <Card key={post.id} className="w-60 flex-shrink-0">
                 <CardHeader>

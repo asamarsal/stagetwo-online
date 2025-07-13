@@ -23,7 +23,7 @@ export default function Bookmarks() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-svh select-none">
+    <div className="flex flex-col items-center mt-6 min-h-svh select-none">
         <Card className="w-full max-w-[400px]">
           <CardHeader>
             <CardTitle className="text-xl text-center">Bookmarks</CardTitle>

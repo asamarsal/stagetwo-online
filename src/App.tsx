@@ -17,6 +17,13 @@ import Tasktwo from "./pages/tasktwo/Tasktwo";
 import Taskthree from "./pages/taskthree/Taskthree";
 import Taskfive from "./pages/taskfive/Taskfive";
 
+import About from "./pages/About";
+import Productstaskthree from "./pages/Productstaskthree";
+import Posts from "./pages/Posts";
+import Postdetail from "./pages/Postdetail";
+import ProductDetail from "./pages/Productdetail";
+
+
 
 function Header() {
   const { token, logout } = useAuth();
@@ -98,12 +105,20 @@ function App() {
           <Route path="/tasktwo" element={<Tasktwo />} />
           <Route path="/taskthree" element={<Taskthree />} />
           <Route path="/taskfive" element={<Taskfive />} />
+          <Route path="/about" element={<About />} />
+          
+          <Route path="/productstaskthree" element={<Productstaskthree />} />
+          <Route path="/posts" element={<Posts />}>
+            <Route path=":postId" element={<Postdetail />} />
+          </Route>
 
           <Route path="/products" element={
             <PrivateRoute>
               <Products />
             </PrivateRoute>}>
           </Route>
+
+          <Route path="/products/:postId" element={<ProductDetail />} />
 
           <Route path="/cart" element={
             <PrivateRoute>

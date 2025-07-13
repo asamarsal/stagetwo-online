@@ -37,7 +37,7 @@ export default function Taskthree() {
                     <CardDescription className="text-center">Products</CardDescription>
                 </CardHeader>
                 <CardContent className="flex justify-center gap-2">
-                    <Link to="/products">
+                    <Link to="/productstaskthree">
                         <Button className="bg-blue-500"><LucideMonitor/>Products</Button>
                     </Link>
                     <Link to="/cart">

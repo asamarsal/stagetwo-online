@@ -7,7 +7,7 @@ import {
   CardTitle,
   CardDescription
 } from "@/components/ui/card"
-import { Loader2Icon, LucideInfo, Terminal } from "lucide-react"
+import { Loader2Icon, LucideInfo } from "lucide-react"
 
 import {
   AlertDialog,
